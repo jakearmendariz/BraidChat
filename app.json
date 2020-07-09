@@ -4,7 +4,7 @@
     "slug": "BraidChat",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/braidicon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -21,6 +21,7 @@
     "ios": {
       "supportsTablet": true
     },
+    
     "web": {
       "favicon": "./assets/images/favicon.png"
     }
