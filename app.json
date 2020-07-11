@@ -4,9 +4,10 @@
     "slug": "BraidChat",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/braidicon.png",
+    "icon": "./assets/images/BCicon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
+    "primaryColor": "#0d4771",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -19,11 +20,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.braid.BraidChat",
+      "buildNumber": "1.0.0"
     },
-    
+    "android": {
+      "package": "com.braid.BraidChat",
+      "versionCode": 1,
+      "windowSoftInputMode":"stateUnspecified|adjustResize"
+    },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "description": "A chat app using the braidjs protocol to synchronize messages."
   }
 }

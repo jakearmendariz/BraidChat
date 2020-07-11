@@ -6,20 +6,23 @@ import registerForPushNotifications from './registerForPushNotifications'
 import { WebView } from 'react-native-webview';
 
 
+import Header from './Header'
 
 import * as Notifications from 'expo-notifications'
 import * as Permissions from 'expo-permissions'
 
 
-function HomeScreen(){
+function HomeScreen({navigation}){
 
     return (
-        <View style={{overflow:'hidden', height:600, width: 400 }}>
+        
+        <View style={{overflow:'hidden', height:750, width: 400 }}>
+            <Header />
           <WebView
           source={{ uri: 'https://invisible.college/chat/' }}
-          style={{marginBottom:100  }}
+          style={{marginBottom:0  }}
           />
-          <Button 
+          {/* <Button 
             title="basic notification"
             // style={styles.webviewButton}
             onPress= {() =>  
@@ -38,6 +41,13 @@ function HomeScreen(){
                 })
             }
           />
+          <Button
+                title="Settings"
+                color="#1E6738"
+                onPress={async () => {
+                   navigation.navigate("Settings")
+                }}
+            /> */}
         </View>
     );
 }

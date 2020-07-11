@@ -5,10 +5,10 @@ import * as Notif from 'expo-notifications'
 import { Platform } from 'react-native';
 
 
-const PUSH_ENDPOINT = 'https://jelly-fern-skiff.glitch.me/token';
+const PUSH_ENDPOINT = 'https://jelly-fern-skiff.glitch.me/delete';
 
-const registerForPushNotifications = async () => {
-    console.log("registering for push notifications")
+const removePushNotifications = async () => {
+    console.log("removing for push notifications")
     const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
         if (status !== 'granted') {
         alert('No notification permissions!');
@@ -42,4 +42,4 @@ const registerForPushNotifications = async () => {
         }),
     });
 }
-export default registerForPushNotifications;
+export default removePushNotifications;
