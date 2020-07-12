@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Image, TextInput, StyleSheet, Text, TouchableOpacity, Button, View, Platform } from 'react-native';
 import Header from './Header'
+import localStorage from 'react-native-sync-localstorage'
+import registerForPushNotifications from './components/registerForPushNotifications'
 
 export default function NotificationPage() {
     const [text, setText] = useState(' ');
@@ -13,14 +15,14 @@ export default function NotificationPage() {
     return (
     
       <View >
-        <Header />
+        <Header value = "Echo"/>
         <View  style={{  alignItems: 'center', justifyContent: 'center', marginTop:200 }}>
             <Text style={{fontSize:17, fontWeight: "bold"}}>Send a notification to everyone with the app</Text>
             <TextInput style={styles.input} placeholder = "Subject" onChangeText={onChangeSubject}/>
             <TextInput style={styles.input} placeholder = "Message"  onChangeText={onChangeText}/>
              <TouchableOpacity 
                 style={{padding:10,backgroundColor:'#0d4771',borderRadius:10}}
-                onPress= {() =>  
+                onPress= {() =>  {
                     fetch("https://jelly-fern-skiff.glitch.me/message", {
                         method: 'POST',
                         headers: {
@@ -34,6 +36,7 @@ export default function NotificationPage() {
                             }
                         }),
                     })
+                }
                 }
             ><Text style={{color:"white"}}>Send Notification</Text></TouchableOpacity>
         </View>

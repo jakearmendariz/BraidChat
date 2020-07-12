@@ -3,14 +3,18 @@ import { Image, StyleSheet, Text, TouchableOpacity, Button, View, Platform } fro
 // import localStorage from 'react-native-sync-localstorage'
 
 
-function Header(){
+function Header({value}){
 
     return (
         <View>
-          <Text style={styles.text}>BraidChat</Text>
+          <Text style={styles.text}>{value}</Text>
         </View>
     );
 }
+
+Header.defaultProps = {
+  value: "BraidChat"
+};
 
 const styles = StyleSheet.create({
    

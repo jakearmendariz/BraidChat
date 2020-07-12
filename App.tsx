@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Keyboard, TextInput, StyleSheet } from "react-native";
 
 import HomeScreen from './components/Home'
 import Settings from './components/Settings'
@@ -19,14 +20,6 @@ import { Image } from 'react-native';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// function LogoTitle() {
-//   return (
-//     <Image
-//       style={{ width: 50, height: 50 }}
-//       source={{uri:'./assests/images/BCicon.png'}}
-//     />
-//   );
-// }
 
 // function App() {
 //   useEffect(() => {
@@ -58,7 +51,7 @@ export default function Dashboard() {
       localStorage.setItem("notifications", "true")
     }
   }, []);
-  return (
+  return(
     <NavigationContainer>
     <BottomTab.Navigator initialRouteName="home">
       <BottomTab.Screen

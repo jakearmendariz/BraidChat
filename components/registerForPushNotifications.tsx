@@ -3,6 +3,7 @@ import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import * as Notif from 'expo-notifications'
 import { Platform } from 'react-native';
+import localStorage from 'react-native-sync-localstorage'
 
 
 const PUSH_ENDPOINT = 'https://jelly-fern-skiff.glitch.me/token';
@@ -27,7 +28,12 @@ const registerForPushNotifications = async () => {
         lightColor: '#FF231F7C',
         });
     }
-
+    let name = localStorage.getItem('name')
+    if(name){
+        console.log("user's name is set to:" + name)
+    }else{
+        console.log("name is undefined")
+    }
     // POST the token to your backend server from where you can retrieve it to send push notifications.
     return fetch(PUSH_ENDPOINT, {
         method: 'POST',
@@ -37,6 +43,7 @@ const registerForPushNotifications = async () => {
         },
         body: JSON.stringify({
             token: {
+                name: name,
                 value: token,
             }
         }),

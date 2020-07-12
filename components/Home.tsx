@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, Button, View, Platform } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, Button, View, Platform,KeyboardAvoidingView } from 'react-native';
 // import localStorage from 'react-native-sync-localstorage'
 import Constants from 'expo-constants'
 import registerForPushNotifications from './registerForPushNotifications'
@@ -16,39 +16,22 @@ function HomeScreen({navigation}){
 
     return (
         
-        <View style={{overflow:'hidden', height:750, width: 400 }}>
-            <Header />
+        // <View style={{overflow:'hidden', height:750, width: 400 }}>
+            // 
+            <KeyboardAvoidingView
+                behavior={Platform.select({ ios: "position", android: null })}
+                enabled
+                contentContainerStyle={{ flex: 1 }}
+                // keyboardVerticalOffset={Platform.select({ ios: 20, android: 20 })}
+                style={{ flexGrow: 1 }}
+            >
+                <Header />
           <WebView
           source={{ uri: 'https://invisible.college/chat/' }}
           style={{marginBottom:0  }}
           />
-          {/* <Button 
-            title="basic notification"
-            // style={styles.webviewButton}
-            onPress= {() =>  
-                fetch("https://jelly-fern-skiff.glitch.me/message", {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        message: {
-                            user: 'Jake',
-                            text:'Hello World'
-                        }
-                    }),
-                })
-            }
-          />
-          <Button
-                title="Settings"
-                color="#1E6738"
-                onPress={async () => {
-                   navigation.navigate("Settings")
-                }}
-            /> */}
-        </View>
+          </KeyboardAvoidingView>
+        // </View>
     );
 }
 

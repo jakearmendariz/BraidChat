@@ -9,7 +9,7 @@
     "userInterfaceStyle": "automatic",
     "primaryColor": "#0d4771",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/whitesplash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -26,8 +26,7 @@
     },
     "android": {
       "package": "com.braid.BraidChat",
-      "versionCode": 1,
-      "windowSoftInputMode":"stateUnspecified|adjustResize"
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
