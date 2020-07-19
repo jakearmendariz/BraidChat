@@ -37,21 +37,24 @@ function Settings(){
             removePushNotifications()
         }
     }
-    const [text, setText] = useState(' ');
+    const [text, setText] = useState('');
 
     const onChangeText = (textValue) => { setText(textValue); localStorage.setItem('name', textValue)}
    
     let value = localStorage.getItem('name')
+    // if(value != undefined){
+    //     setText(value)
+    // }
     return (
         <View>
             <Header value="Settings"/>
             <View style={styles.Screen}>
                 <Text style={styles.text}>Name</Text>
                     <View style={{flexDirection:"row", justifyContent: 'space-between'}}>
-                    <TextInput  placeholder = "Your Name" onChangeText={onChangeText} value={value} style={styles.input}></TextInput>
+                    <TextInput  placeholder = "Add Your Name" onChangeText={onChangeText} value={text} style={styles.input}></TextInput>
                     <TouchableOpacity 
                     style={{padding:10,backgroundColor:'#0d4771',borderRadius:10, height:40,marginTop:10,paddingLeft:20, paddingRight:20}}
-                    onPress={() => registerForPushNotifications()}>
+                    onPress={() => {localStorage.setItem("name", text); registerForPushNotifications()}}>
                         <Text style={{color:"white", fontSize:16}}>Save</Text>
                     </TouchableOpacity>
                 </View >
@@ -62,7 +65,7 @@ function Settings(){
                                 trackColor={{ false: "#767577", true: "#0d4771" }}
                                 thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"}
                                 ios_backgroundColor="#3e3e3e"
-                                onValueChange={toggleSwitch}
+                                onValueChange={() => toggleSwitch()}
                                 value={on}
                                 style={{justifyContent: 'flex-end',alignSelf: 'flex-end'}}
                             />
@@ -100,6 +103,3 @@ const styles = StyleSheet.create({
 });
 
 export default Settings
-
-
-

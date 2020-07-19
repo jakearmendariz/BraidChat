@@ -4,9 +4,12 @@ import * as Permissions from 'expo-permissions';
 import * as Notif from 'expo-notifications'
 import { Platform } from 'react-native';
 import localStorage from 'react-native-sync-localstorage'
+import * as config from './config'
 
 
-const PUSH_ENDPOINT = 'https://jelly-fern-skiff.glitch.me/token';
+const PUSH_ENDPOINT1 = config.dev_url + 'token'
+const PUSH_ENDPOINT = "https://jakearmendariz.com/token"
+
 
 const registerForPushNotifications = async () => {
     console.log("registering for push notifications")

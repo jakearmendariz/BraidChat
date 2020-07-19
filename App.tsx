@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Keyboard, TextInput, StyleSheet } from "react-native";
 
 import HomeScreen from './components/Home'
 import Settings from './components/Settings'
 import NotificationPage from './components/NotificationPage'
 
 import localStorage from 'react-native-sync-localstorage'
+import Constants from 'expo-constants';
 
 import { Entypo, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -21,30 +21,15 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
-// function App() {
-//   useEffect(() => {
-//     registerForPushNotifications()
-//     if(localStorage.getItem("notifications") == null){
-//       localStorage.setItem("notifications", "true")
-//     }
-//   }, []);
-//     return (
-
-//       <NavigationContainer>
-//         <Tab.Navigator>
-//         <Tab.Screen name="Home" component={HomeScreen} />
-//         <Tab.Screen name="Settings" component={Settings} />
-//         <Tab.Screen name="Test" component={NotificationPage} />
-//       </Tab.Navigator>
-//       </NavigationContainer>
-//     );
-  
-// }
-
-
 const BottomTab = createBottomTabNavigator();
 
+async function printUserString(){
+  let user_string =  await Constants.getWebViewUserAgentAsync()
+  console.log("user_string: " + user_string)
+}
+
 export default function Dashboard() {
+  printUserString()
   useEffect(() => {
     registerForPushNotifications()
     if(localStorage.getItem("notifications") == null){

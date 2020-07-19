@@ -3,9 +3,12 @@ import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import * as Notif from 'expo-notifications'
 import { Platform } from 'react-native';
+import * as config from './config'
 
 
-const PUSH_ENDPOINT = 'https://jelly-fern-skiff.glitch.me/delete';
+const PUSH_ENDPOINT1 = config.dev_url + 'delete';
+const PUSH_ENDPOINT =  "https://jakearmendariz.com/delete";
+
 
 const removePushNotifications = async () => {
     console.log("removing for push notifications")

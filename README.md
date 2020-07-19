@@ -17,6 +17,8 @@ To run install the expo cli, then these commands
 
 ! expo install react-navigation-tabs
 
+! expo install react-native-firebase
+
 **Then run**
 
 ! expo start
