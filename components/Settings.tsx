@@ -17,7 +17,7 @@ import * as Permissions from 'expo-permissions'
 function Settings(){
     var set = true
     var on = true;
-    if(localStorage.getItem('notifications') != null){
+    if(localStorage.getItem('notifications') != undefined){
         console.log("Notifications are " + localStorage.getItem('notifications'))
         set = JSON.parse(localStorage.getItem('notifications'))
         on = set
@@ -39,12 +39,21 @@ function Settings(){
     }
     const [text, setText] = useState('');
 
-    const onChangeText = (textValue) => { setText(textValue); localStorage.setItem('name', textValue)}
+    const onChangeText = (textValue) => { setText(textValue); }
    
-    let value = localStorage.getItem('name')
+    
     // if(value != undefined){
     //     setText(value)
     // }
+    useEffect(() => {
+        console.log("useEffect")
+        
+
+        let value = localStorage.getItem('name')
+        if(value != undefined){
+            setText(value)
+        }
+      }, []);
     return (
         <View>
             <Header value="Settings"/>

@@ -6,8 +6,7 @@ import { Platform } from 'react-native';
 import * as config from './config'
 
 
-const PUSH_ENDPOINT1 = config.dev_url + 'delete';
-const PUSH_ENDPOINT =  "https://jakearmendariz.com/delete";
+const PUSH_ENDPOINT =  "https://jelly-fern-skiff.glitch.me/delete";
 
 
 const removePushNotifications = async () => {

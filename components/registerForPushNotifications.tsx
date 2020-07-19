@@ -7,16 +7,15 @@ import localStorage from 'react-native-sync-localstorage'
 import * as config from './config'
 
 
-const PUSH_ENDPOINT1 = config.dev_url + 'token'
-const PUSH_ENDPOINT = "https://jakearmendariz.com/token"
+const PUSH_ENDPOINT = "https://jelly-fern-skiff.glitch.me/token"
 
 
 const registerForPushNotifications = async () => {
     console.log("registering for push notifications")
     const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
         if (status !== 'granted') {
-        alert('No notification permissions!');
-        return;
+            alert('No notification permissions!');
+            return;
     }
 
     // Get the token that identifies this device

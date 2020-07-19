@@ -5,8 +5,7 @@ import localStorage from 'react-native-sync-localstorage'
 import registerForPushNotifications from './components/registerForPushNotifications'
 import * as config from './config'
 
-let message_url1 = config.dev_url + 'message'
-const message_url = "https://jakearmendariz.com/message"
+const message_url = "https://jelly-fern-skiff.glitch.me/message"
 
 export default function NotificationPage() {
     const [text, setText] = useState(' ');
@@ -27,7 +26,6 @@ export default function NotificationPage() {
              <TouchableOpacity 
                 style={{padding:10,backgroundColor:'#0d4771',borderRadius:10}}
                 onPress= {() =>  {
-                    console.log(message_url1)
                     console.log(message_url)
                     fetch(message_url, {
                         method: 'POST',

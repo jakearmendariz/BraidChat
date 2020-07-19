@@ -12,7 +12,6 @@ import Constants from 'expo-constants';
 
 import { Entypo, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 import registerForPushNotifications from './components/registerForPushNotifications'
 import { Image } from 'react-native';
 
@@ -32,8 +31,11 @@ export default function Dashboard() {
   printUserString()
   useEffect(() => {
     registerForPushNotifications()
-    if(localStorage.getItem("notifications") == null){
+    if(localStorage.getItem("notifications") == undefined){
+      console.log("app.tsx: no localstorage notifications found. Setting to true")
       localStorage.setItem("notifications", "true")
+    }else{
+      console.log("app.tsx: localstorage:notifications:" + localStorage.getItem("notifications"))
     }
   }, []);
   return(
