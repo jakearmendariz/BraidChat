@@ -16,3 +16,4 @@ config.tsx
 
 google-services.json
 deployment_cert.der
+yarn.lock
