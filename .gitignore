@@ -13,3 +13,6 @@ web-build/
 .DS_Store
 app.config
 config.tsx
+
+google-services.json
+deployment_cert.der
