@@ -13,7 +13,12 @@ import * as Permissions from 'expo-permissions'
 
 
 function HomeScreen({navigation}){
-
+        
+    const myScript = `
+      document.body.style.backgroundColor = 'red';
+      setTimeout(function() { window.alert('hi') }, 2000);
+      true; // note: this is required, or you'll sometimes get silent failures
+    `;
     return (
         
         // <View style={{overflow:'hidden', height:750, width: 400 }}>
@@ -29,10 +34,12 @@ function HomeScreen({navigation}){
           <WebView
           source={{ uri: 'https://invisible.college/chat/' }}
           style={{marginBottom:0  }}
+          javaScriptEnabled={true}
           />
           </KeyboardAvoidingView>
         // </View>
     );
+    
 }
 
 const styles = StyleSheet.create({
@@ -51,7 +58,7 @@ const styles = StyleSheet.create({
     }  
 });
 
-  export default HomeScreen
+ export default HomeScreen
 
 
 Notifications.setNotificationHandler({

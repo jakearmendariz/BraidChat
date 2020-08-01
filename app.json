@@ -25,11 +25,15 @@
       "bundleIdentifier": "com.braid.BraidChat",
       "buildNumber": "1.0.0"
     },
+    "notification": {
+      "icon": "./assets/images/notification-icon.png"
+    },
     "android": {
       "package": "com.braid.BraidChat",
       "googleServicesFile": "./google-services.json",
       "versionCode": 3,
-      "permissions":["NOTIFICATIONS"]
+      "permissions":["NOTIFICATIONS"],
+      "useNextNotificationsApi": true
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

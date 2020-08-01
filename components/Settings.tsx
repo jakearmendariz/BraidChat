@@ -47,7 +47,6 @@ function Settings(){
     // }
     useEffect(() => {
         console.log("useEffect")
-        
 
         let value = localStorage.getItem('name')
         if(value != undefined){
